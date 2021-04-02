@@ -63,7 +63,25 @@ for i in range(case):
                         #print("remove: ", crypted)
                         cList.remove(crypted)
                         break
+            # abc ... wxy 같이 25개가 있는 경우 -> 나머지 하나 유추 가능
             if crypted in cList:
+                if len(dic.keys()) == 25:
+                    keys = sorted(dic.keys())
+                    values = sorted(dic.values())
+                    targetKey = ""
+                    targetValue = ""
+                    # print(keys)
+                    # print(values)
+                    for alphabet in range(26):
+                        target = str(chr(ord('a')+alphabet))                        
+                        # print(target)
+                        if target not in keys:
+                            targetKey = target
+                        if target not in values:
+                            targetValue= target
+                    # print('z' not in keys)
+                    dic[targetKey] = targetValue
+                    
                 inv_dic = {v: k for k, v in dic.items()}
                 dictList.append(inv_dic)
                 
@@ -103,16 +121,6 @@ for i in range(case):
                 if flg:
                     result += dictList[0][char]
         resultList.append(result)
-            
 
 for r in resultList:
     print(r)
-
-
-
-                
-        
-
-
-
-
