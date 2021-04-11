@@ -26,18 +26,3 @@ def printInfo(information, start):
             temptxt += "--"
         temptxt += element[num]
         print(temptxt)
-
-stack = info
-printInfo(stack, 0)
-
-for element in info[1:]:
-    count = 0
-    while count < len(stack):
-        if(stack[count] == element[count]):
-            printInfo(element, count)
-            stack = element
-            break
-        count += 1
-
-    printInfo(element, 0)
-    stack = element
