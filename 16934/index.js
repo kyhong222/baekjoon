@@ -1,3 +1,23 @@
+let fs = require("fs");
+// let input = fs.readFileSync("/dev/stdin").toString().split("\n");
+let input = 
+
+let count = input[0];
+let numbers = [];
+
+for (let i = 1; i < input.length; i++) {
+  if (input[i] !== "") {
+    numbers.push(input[i].split(" "));
+  }
+}
+
+for (let i = 0; i < numbers.length; i++) {
+  let num1 = Number(numbers[i][0]);
+  let num2 = Number(numbers[i][1]);
+
+  console.log(num1 + num2);
+}
+
 let prefixes = [];
 let nicknames = [];
 
@@ -31,14 +51,26 @@ function isExist(prefix) {
   return prefixes.includes(prefix);
 }
 
-inputs = ["backjoon", "startlink", "bakejoon", "beakjoon", "baekjoon"];
+// inputs = [
+//   "codeplus",
+//   "startlink",
+//   "beakjoon",
+//   "baek",
+//   "baekjoon",
+//   "baek",
+//   "codingwiki",
+// ];
 
-for (let i = 0; i < inputs.length; i++) {
-  console.log(makePrefix(inputs[i]));
+for (let i = 0; i < input.length; i++) {
+  console.log(makePrefix(input[i]));
 }
 
 function checkExist(prefix) {
+  // console.log("checkExist");
   const checker = nicknames.map((element) => element.indexOf(prefix));
+  // console.log(nicknames);
+  // console.log(prefix);
+  // console.log(checker);
   if (checker.includes(0)) {
     return true;
   }
